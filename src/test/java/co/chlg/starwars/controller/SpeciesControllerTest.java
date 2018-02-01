@@ -6,8 +6,8 @@ import static org.springframework.http.HttpStatus.OK;
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
 import java.net.URI;
+import java.util.List;
 import java.util.Map;
-import java.util.Set;
 import org.apache.log4j.Logger;
 import org.junit.Before;
 import org.junit.Test;
@@ -33,23 +33,25 @@ public class SpeciesControllerTest {
 
   @Before
   public void setUp() {
-    url = URI.create("http://localhost:" + port + "/");
+    url = URI.create("http://localhost:" + port + "/species/");
   }
 
   @Test
   @SuppressWarnings("unchecked")
   public void getHuman() {
     // Given...
-    URI uri = url.resolve("human");
+    URI uri = url.resolve("?q=human");
     // When...
-    ResponseEntity<Map> response = testRest.getForEntity(uri, Map.class);
+    ResponseEntity<List> response = testRest.getForEntity(uri, List.class);
     // Then...
     assertThat(response.getStatusCode(), is(OK));
     assertThat(response.getHeaders().getContentType().toString(),
         startsWith(APPLICATION_JSON_VALUE));
     assertThat(response.getBody(), notNullValue());
-    assertThat((Set<String>) response.getBody().keySet(), hasItem("classification"));
-    assertThat(response.getBody().get("classification"), is("mammal"));
+    List<Map> body = (List<Map>) response.getBody();
+    assertThat(body.size(), is(1));
+    assertThat(body.get(0).keySet(), hasItem("classification"));
+    assertThat(body.get(0).get("classification"), is("mammal"));
     log.info(response.getBody());
   }
 

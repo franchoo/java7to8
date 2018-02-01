@@ -5,7 +5,7 @@ import java.util.Map;
 
 public interface SpeciesService {
 
-  Map<String, ?> searchSpecies(String search);
+  List<Map<String, ?>> getSpecies(String search);
 
   List<?> getSpeciesAttributes(String search, String... attributes);
 

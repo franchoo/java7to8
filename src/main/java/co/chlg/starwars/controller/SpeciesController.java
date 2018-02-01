@@ -7,19 +7,20 @@ import java.util.Map;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping(path = "/{species}", produces = APPLICATION_JSON_VALUE)
+@RequestMapping(path = "/species", produces = APPLICATION_JSON_VALUE)
 public class SpeciesController {
 
   @GetMapping
-  private Map<String, ?> getSpecies(@PathVariable("species") String species) {
+  private List<Map<String, ?>> getSpecies(@RequestParam("species") String species) {
     return null;
   }
 
-  @GetMapping("/in/{planet}")
-  private List<?> getSpeciesInPlanet(@PathVariable("species") String species,
+  @GetMapping("/{species}/in/{planet}")
+  private List<Map<String, ?>> getSpeciesPeopleInPlanet(@PathVariable("species") String species,
       @PathVariable("planet") String planet) {
     return null;
   }

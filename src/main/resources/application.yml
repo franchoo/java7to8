@@ -1,0 +1,16 @@
+logging:
+  level:
+    root: WARN
+    co:
+      chlg:
+        starwars: INFO
+    org:
+      springframework:
+        web: ERROR
+  pattern:
+    console: '%n%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level [%thread] %logger{40} - %msg'
+
+api:
+  starwars:
+    base-url: https://swapi.co/api/
+    query-param: ?search={query}

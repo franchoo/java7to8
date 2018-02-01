@@ -1,0 +1,22 @@
+plugins {
+    id "java"
+    id "idea"
+    id "eclipse"
+    id "org.springframework.boot" version "1.5.8.RELEASE"
+    id "io.spring.dependency-management" version "1.0.3.RELEASE"
+    id "com.gorylenko.gradle-git-properties" version "1.4.17"
+}
+
+group = "co.chlg"
+version = "1.0"
+sourceCompatibility = 1.8
+
+repositories {
+    jcenter ()
+}
+
+dependencies {
+    compile "org.apache.commons:commons-lang3:3.7"
+    compile "org.springframework.boot:spring-boot-starter-web"
+    testCompile "org.springframework.boot:spring-boot-starter-test"
+}

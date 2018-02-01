@@ -12,5 +12,4 @@ logging:
 
 api:
   starwars:
-    base-url: https://swapi.co/api/
-    query-param: ?search={searchText}
+    base-url: https://swapi.co/api

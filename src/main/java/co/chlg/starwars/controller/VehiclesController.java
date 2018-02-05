@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class VehiclesController {
 
   @GetMapping
-  private List<Map<String, ?>> getVehicles(@RequestParam("vehicle") String vehicle) {
+  private List<Map<String, ?>> getVehicles(@RequestParam("q") String search) {
     return null;
   }
 

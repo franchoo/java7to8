@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class FilmsController {
 
   @GetMapping
-  private List<Map<String, ?>> getFilms(@RequestParam("film") String film) {
+  private List<Map<String, ?>> getFilms(@RequestParam("q") String search) {
     return null;
   }
 

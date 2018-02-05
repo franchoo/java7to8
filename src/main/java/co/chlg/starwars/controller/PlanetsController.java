@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class PlanetsController {
 
   @GetMapping
-  private List<Map<String, ?>> getPlanets(@RequestParam("planet") String planet) {
+  private List<Map<String, ?>> getPlanets(@RequestParam("q") String search) {
     return null;
   }
 

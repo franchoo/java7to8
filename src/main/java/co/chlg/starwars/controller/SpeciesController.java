@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class SpeciesController {
 
   @GetMapping
-  private List<Map<String, ?>> getSpecies(@RequestParam("species") String species) {
+  private List<Map<String, ?>> getSpecies(@RequestParam("q") String search) {
     return null;
   }
 

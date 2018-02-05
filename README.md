@@ -10,10 +10,10 @@ Simple yet complete [coding challenge](https://goo.gl/WbBvmX) with _Spring Frame
 
 ## End-points _(to implement)_
 ##### _Max 10 search results_
-- GET /species?q={species}
-- GET /vehicles?q={vehicle}
-- GET /planets?q={planet}
-- GET /films?q={film}
+- GET /species?q={search}
+- GET /vehicles?q={search}
+- GET /planets?q={search}
+- GET /films?q={search}
 ##### _Join & filter_
 - GET /species/{species}/in/{planet} ..._returns people of single species of planet_
 - GET /films/{film}/starpilots ..._returns a film's starship pilots (people) with hyperdrive_rating above 1_

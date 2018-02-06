@@ -9,13 +9,13 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestOperations;
 
 @Service
-public class SpeciesService implements StarWarsService {
+public class PlanetsService implements StarWarsService {
 
   private RestOperations rest;
 
-  public SpeciesService(@Value("${api.starwars.base-url}") String rootUri,
+  public PlanetsService(@Value("${api.starwars.base-url}") String rootUri,
       RestTemplateBuilder builder) {
-    rest = builder.rootUri(rootUri + "/species").build();
+    rest = builder.rootUri(rootUri + "/planets").build();
   }
 
   @Override
@@ -25,9 +25,7 @@ public class SpeciesService implements StarWarsService {
 
   @Override
   public BiFunction<String, ?, ?> replacing() {
-    final List<String> keep = Arrays
-        .asList("name", "classification", "designation", "average_height", "average_lifespan",
-            "eye_colors", "hair_colors", "skin_colors", "language");
+    final List<String> keep = Arrays.asList();
     return (key, value) -> keep.contains(key) ? value : null;
   }
 

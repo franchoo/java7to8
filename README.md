@@ -9,7 +9,7 @@ Simple yet complete [coding challenge](https://goo.gl/WbBvmX) with _Spring Frame
 - New date and time API
 
 ## End-points _(to implement)_
-##### _Max 10 search results_
+##### _Max 9 search results_
 - GET /species?q={search}
 - GET /vehicles?q={search}
 - GET /planets?q={search}
@@ -21,6 +21,8 @@ Simple yet complete [coding challenge](https://goo.gl/WbBvmX) with _Spring Frame
 
 ### Try out
 Import the files (_build.gradle_ as a project) in an IDE (like Eclipse or IntelliJ) or with VSCode adding the [Java Extension Pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack) (also by the shell command `code <project-folder>`), execute via main method or JUnit Test files
+
+Can also be deployed by shell command, in the project path use `./gradlew bootRun`
 
 ## Contributors
 - franchoo [twitter](https://twitter.com/Franchooo42) [linkedin](https://www.linkedin.com/in/franchoo)

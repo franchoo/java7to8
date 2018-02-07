@@ -7,6 +7,7 @@ import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
+import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.web.client.RestOperations;
 
 @SuppressWarnings("unchecked")
@@ -17,7 +18,8 @@ public interface StarWarsService {
   Collection<String> removables();
 
   /**
-   * Realiza una busqueda de entidades (max 10) en la API publica y abierta de Star Wars
+   * Realiza una busqueda de entidades (max 9) en la API publica y abierta de Star Wars,
+   * ademas de remover las llaves definidas en {@link #removables()} a cada entidad resultante.
    *
    * @param search termino de busqueda
    * @return lista de entidades
@@ -25,8 +27,9 @@ public interface StarWarsService {
   default List<Map<String, ?>> get(String search) {
     List<Map<String, ?>> results = (List<Map<String, ?>>) getByUrl("/?search={search}", search)
         .get("results");
-    if (results.size() > 10) {
-      throw new IllegalArgumentException(search);
+    if (results.size() > 9) {
+      // Esta exception arroja un HTTP 400 Bad request...
+      throw new HttpMessageNotReadableException(String.format("Too many results for '%s'", search));
     }
     results.forEach(entity -> entity.keySet().removeIf(removables()::contains));
     return results;
@@ -44,9 +47,12 @@ public interface StarWarsService {
     List<Map<String, ?>> results = (List<Map<String, ?>>) getByUrl("/?search={search}", search)
         .get("results");
     if (results.size() > 1) {
-      throw new IllegalArgumentException(search);
+      // Esta exception arroja un HTTP 400 Bad request...
+      throw new HttpMessageNotReadableException(String.format("More that one for '%s'", search));
     }
-    return results.stream().findFirst().map(entity -> (List) entity.get(attribute)).get();
+    return results.stream().findFirst().map(entity -> (List) entity.get(attribute)).orElseThrow(
+        // Esta exception arroja un HTTP 400 Bad request...
+        () -> new HttpMessageNotReadableException(String.format("Not even one for '%s'", search)));
   }
 
   /**

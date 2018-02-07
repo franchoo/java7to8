@@ -42,6 +42,7 @@ public class StarshipsService implements StarWarsService {
   public static Predicate<Map<String, ?>> hyperdriveRatingAbove(float value) {
     return starship ->
         Optional.ofNullable((String) starship.get("hyperdrive_rating"))
+            .filter(text -> !"unknown".equals(text))
             .map(Float::valueOf)
             .filter(rating -> rating > value)
             .isPresent();

@@ -32,6 +32,13 @@ public class StarshipsService implements StarWarsService {
     return removables;
   }
 
+  /**
+   * Devuelve una función que valida si la starship que se provee,
+   * posee un hyperdrive_rating mayor al {@code value} especificado.
+   *
+   * @param value umbral a ser superado en validación
+   * @return función predicado validadora del hyperdrive_rating
+   */
   public static Predicate<Map<String, ?>> hyperdriveRatingAbove(float value) {
     return starship ->
         Optional.ofNullable((String) starship.get("hyperdrive_rating"))

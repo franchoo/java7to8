@@ -17,7 +17,7 @@ Simple yet complete [coding challenge](https://goo.gl/WbBvmX) with _Spring Frame
 ##### _Join & filter_
 - GET /species/{species}/in/{planet} ..._returns people of single species of planet_
 - GET /films/{film}/starpilots ..._returns a film's starship pilots (people) with hyperdrive_rating above 1_
-- GET /vehicles/{vehicle}/lifespan ..._returns the vehicle duration between first and last films_
+- GET /vehicles/{vehicle}/lifespan ..._returns the vehicle duration period between first and last films_
 
 ### Try out
 Import the files (_build.gradle_ as a project) in an IDE (like Eclipse or IntelliJ) or with VSCode adding the [Java Extension Pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack) (also by the shell command `code <project-folder>`), execute via main method or JUnit Test files

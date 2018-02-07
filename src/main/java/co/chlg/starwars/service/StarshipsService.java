@@ -10,6 +10,9 @@ import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestOperations;
 
+/**
+ * Has use example for {@link Optional} and its methods
+ */
 @Service
 public class StarshipsService implements StarWarsService {
 

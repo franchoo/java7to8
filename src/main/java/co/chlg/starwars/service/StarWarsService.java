@@ -3,6 +3,11 @@ package co.chlg.starwars.service;
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
+import java.util.function.Consumer;
+import java.util.function.Predicate;
+import java.util.function.Supplier;
+import java.util.stream.Stream;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -10,6 +15,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.web.client.RestOperations;
 
+/**
+ * Has use example for {@code default} methods on interfaces, method references, {@link Iterable#forEach(Consumer)},
+ * {@link Collection#removeIf(Predicate)}, {@link Stream#findFirst()} and {@link Optional#orElseThrow(Supplier)}
+ */
 @SuppressWarnings("unchecked")
 public interface StarWarsService {
 

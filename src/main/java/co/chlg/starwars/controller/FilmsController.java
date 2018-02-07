@@ -10,6 +10,10 @@ import co.chlg.starwars.service.StarshipsService;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.function.Function;
+import java.util.function.Predicate;
+import java.util.stream.Collector;
+import java.util.stream.Stream;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,6 +21,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+/**
+ * Has use example for function {@code currying}, {@link Stream#map(Function)}, {@link Stream#flatMap(Function)},
+ * {@link Stream#filter(Predicate)} and {@link Stream#collect(Collector)}
+ */
 @RestController
 @RequestMapping(path = "/films", produces = APPLICATION_JSON_VALUE)
 public class FilmsController {

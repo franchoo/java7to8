@@ -19,7 +19,7 @@ public class PlanetsController {
   private PlanetsService planetsService;
 
   @GetMapping
-  private List<Map<String, ?>> getPlanets(@RequestParam("q") String search) throws Exception {
+  private List<Map<String, ?>> getPlanets(@RequestParam("q") String search) {
     return planetsService.get(search);
   }
 

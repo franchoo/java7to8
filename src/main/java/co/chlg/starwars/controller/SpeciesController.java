@@ -27,13 +27,13 @@ public class SpeciesController {
   private PeopleService peopleService;
 
   @GetMapping
-  private List<Map<String, ?>> getSpecies(@RequestParam("q") String search) throws Exception {
+  private List<Map<String, ?>> getSpecies(@RequestParam("q") String search) {
     return speciesService.get(search);
   }
 
   @GetMapping("/{species}/in/{planet}")
   private List<Map<String, ?>> getSpeciesPeopleInPlanet(@PathVariable("species") String species,
-      @PathVariable("planet") String planet) throws Exception {
+      @PathVariable("planet") String planet) {
     final List<?> people = speciesService.getAttributeValues(species, "people");
     final List<?> residents = planetsService.getAttributeValues(planet, "residents");
     return people.stream().filter(residents::contains).map(String::valueOf)

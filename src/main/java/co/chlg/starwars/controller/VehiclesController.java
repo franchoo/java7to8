@@ -21,7 +21,7 @@ public class VehiclesController {
   private VehiclesService vehiclesService;
 
   @GetMapping
-  private List<Map<String, ?>> getVehicles(@RequestParam("q") String search) throws Exception {
+  private List<Map<String, ?>> getVehicles(@RequestParam("q") String search) {
     return vehiclesService.get(search);
   }
 

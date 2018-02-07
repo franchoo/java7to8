@@ -1,8 +1,7 @@
 package co.chlg.starwars.service;
 
 import java.util.Arrays;
-import java.util.List;
-import java.util.function.BiFunction;
+import java.util.Collection;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.stereotype.Service;
@@ -12,6 +11,8 @@ import org.springframework.web.client.RestOperations;
 public class PeopleService implements StarWarsService {
 
   private RestOperations rest;
+  private static Collection<String> removables = Arrays
+      .asList("created", "edited", "films", "homeworld", "species", "starships", "url", "vehicles");
 
   public PeopleService(@Value("${api.starwars.base-url}") String rootUri,
       RestTemplateBuilder builder) {
@@ -24,10 +25,8 @@ public class PeopleService implements StarWarsService {
   }
 
   @Override
-  public BiFunction<String, ?, ?> replacing() {
-    List<String> keep = Arrays
-        .asList("name", "birth_year", "eye_color", "gender", "hair_color", "height", "skin_color");
-    return (key, value) -> keep.contains(key) ? value : null;
+  public Collection<String> removables() {
+    return removables;
   }
 
 }

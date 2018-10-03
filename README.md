@@ -8,7 +8,7 @@ Simple yet complete [coding challenge](https://goo.gl/WbBvmX) with _Spring Frame
 - Stream (and other functors & monads)
 - New date and time API
 
-## End-points _(to implement)_
+## Sample end-points
 ##### _Max 9 search results_
 - ✓ GET /species?q={search}
 - ✓ GET /vehicles?q={search}
